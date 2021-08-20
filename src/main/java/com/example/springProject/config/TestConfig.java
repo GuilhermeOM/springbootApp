@@ -3,6 +3,7 @@ package com.example.springProject.config;
 import com.example.springProject.entities.Category;
 import com.example.springProject.entities.Order;
 import com.example.springProject.entities.OrderItem;
+import com.example.springProject.entities.Payment;
 import com.example.springProject.entities.Product;
 import java.util.Arrays;
 import com.example.springProject.entities.User;
@@ -79,5 +80,10 @@ public class TestConfig implements CommandLineRunner{
         OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
         
         orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+        
+        Payment pay1 = new Payment(null, Instant.parse("2021-01-10T15:10:00Z"), o1);
+        o1.setPayment(pay1);
+        
+        orderRepository.save(o1);
     }
 }
