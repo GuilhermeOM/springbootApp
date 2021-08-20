@@ -1,5 +1,6 @@
 package com.example.springProject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
@@ -22,6 +23,7 @@ public class Payment implements Serializable{
     private Long id;
     private Instant moment;
     
+    @JsonIgnore
     @OneToOne
     @MapsId
     private Order order;
